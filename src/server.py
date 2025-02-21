@@ -83,23 +83,17 @@ connection_manager = ChakraConnectionManager(db_session_key)
 @server.tool()
 def initialize_connection() -> str:
     """
-    Initializes connection to Chakra, allowing you to now retrieve_database_metadata
+    Initializes connection to Chakra and provides the user with the database metadata.
     """
-    return connection_manager.initialize_connection()
-
-
-@server.tool()
-def retrieve_database_metadata() -> str:
-    """
-    Retrieves database metadata including a list of databases, schemas, and tables.
-    """
+    connection_manager.initialize_connection()
     return connection_manager.retrieve_database_metadata()
 
 
 @server.tool()
 def execute_query(query: str) -> str:
     """
-    Executes a query on the database
+    Executes a query on the database.
+    Make sure that you lower case the text and the column compared and use the LIKE operator. This is very important.
     """
     return connection_manager.execute_query(query)
 
