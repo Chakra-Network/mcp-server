@@ -1,22 +1,10 @@
-import contextlib
-import io
-import sys
-from typing import Any, Optional
-
-import httpx
-import requests
-from chakra_py import Chakra
-from mcp.server.fastmcp import FastMCP
-
-# Initialize FastMCP server
-server = FastMCP("weather")
-
-
+# Heavily adapted from:
+# https://github.com/motherduckdb/mcp-server-motherduck/blob/main/src/mcp_server_motherduck/server.py
 PROMPT_TEMPLATE = """The assistant's goal is to help users interact with DuckDB/Chakra databases effectively. 
 Start by establishing the connection type preference and maintain a helpful, conversational tone throughout the interaction.
 <mcp>
 Tools:
-- "initialize_connection": Creates connection to Chakra (uses DuckDB syntax)
+- "initialize_connection": Creates connection to Chakra (uses DuckDB syntax). If you get a 401 or auth error from "retrieve_database_metadata" or "execute_query", try re-initializing the connection.
 - "retrieve_database_metadata": Retrieves metadata about the database including list of tables and their schemas. Use this tool to get the schema of a table before querying it.
 - "execute_query": Runs SQL queries and returns results
 
@@ -204,80 +192,3 @@ Common DuckDB Keywords:
 `ALL`: The `ALL` keyword in SQL specifies that operations should retain all duplicate rows, as seen in commands like `UNION ALL`, `INTERSECT ALL`, and `EXCEPT ALL`, which follow bag semantics instead of eliminating duplicates., Examples: ['UNION ALL\n\n```sql\nSELECT * FROM range(2) t1(x)\nUNION ALL\nSELECT * FROM range(3) t2(x);\n```\nThis example demonstrates using `UNION ALL` to combine rows from two queries without eliminating duplicates.', 'INTERSECT ALL\n\n```sql\nSELECT unnest([5, 5, 6, 6, 6, 6, 7, 8]) AS x\nINTERSECT ALL\nSELECT unnest([5, 6, 6, 7, 7, 9]);\n```\nThis example shows using `INTERSECT ALL` to select rows that are present in both result sets, keeping duplicate values.', 'EXCEPT ALL\n\n```sql\nSELECT unnest([5, 5, 6, 6, 6, 6, 7, 8]) AS x\nEXCEPT ALL\nSELECT unnest([5, 6, 6, 7, 7, 9]);\n```\nThis example illustrates `EXCEPT ALL`, which selects all rows present in the first query but not in the second, without removing duplicates.', 'ORDER BY ALL\n\n```sql\nSELECT *\nFROM addresses\nORDER BY ALL;\n```\nThis SQL command uses `ORDER BY ALL` to sort the result set by all columns sequentially from left to right.']
 `LIKE`: The `LIKE` expression is used to determine if a string matches a specified pattern, allowing wildcard characters such as `_` to represent any single character and `%` to match any sequence of characters., Examples: ["SELECT 'abc' LIKE 'abc'; -- true", "SELECT 'abc' LIKE 'a%'; -- true", "SELECT 'abc' LIKE '_b_'; -- true", "SELECT 'abc' LIKE 'c'; -- false", "SELECT 'abc' LIKE 'c%'; -- false", "SELECT 'abc' LIKE '%c'; -- true", "SELECT 'abc' NOT LIKE '%c'; -- false", "SELECT 'abc' ILIKE '%C'; -- true"]
 """
-
-
-client: Optional[Chakra] = None
-
-
-# TODO: WRAP DB METADATA INTO THIS
-@server.tool()
-def initialize_connection() -> str:
-    """
-    Initializes connection to Chakra, allowing you to now retrieve_database_metadata
-    """
-    global client
-    client = Chakra("TODO: ADD TOKEN")
-    client.login()
-    return "Connection successfully created!"
-
-
-# TODO: MOVE INTO PYTHON SDK
-def _fetch_db_list(token) -> list[str]:
-    url = "https://api.chakra.dev/api/v1/databases"
-
-    headers = {"Authorization": f"Bearer {token}"}
-    response = requests.request("GET", url, headers=headers)
-
-    return response.json()["databases"]
-
-
-def _fetch_db_metadata(db_list: list[str], token: str) -> list[str]:
-    metadata = []
-    for db in db_list:
-        url = f"https://api.chakra.dev/api/v1/databases/{db}"
-        headers = {"Authorization": f"Bearer {token}"}
-        response = requests.request("GET", url, headers=headers)
-        metadata.append(response.json())
-
-    return metadata
-
-
-@server.tool()
-def retrieve_database_metadata() -> str:
-    """
-    Retrieves database metadata and shit
-    """
-    if client is None or client.token is None:
-        return (
-            f"Error: connection was never initialized. Try initialize_connection first."
-        )
-    db_list = _fetch_db_list(client.token)
-    metadata = _fetch_db_metadata(db_list, client.token)
-    return str(metadata)
-
-
-@server.tool()
-def execute_query(query: str) -> str:
-    """
-    Executes a query on the database
-    """
-    if client is None or client.token is None:
-        return (
-            f"Error: connection was never initialized. Try initialize_connection first."
-        )
-    # TODO: BETTER ERROR HANDLING
-    df = client.execute(query)
-    return df.to_string()
-
-
-@server.prompt()
-def prompt() -> str:
-    """
-    A prompt to initialize a connection to Chakra and start working with it
-    """
-    return PROMPT_TEMPLATE
-
-
-if __name__ == "__main__":
-    # Initialize and run the server
-    server.run(transport="stdio")

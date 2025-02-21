@@ -40,7 +40,7 @@ wheels = [
 
 [[package]]
 name = "chakra-py"
-version = "1.0.16"
+version = "1.0.17"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "colorama" },
@@ -51,9 +51,9 @@ dependencies = [
     { name = "requests" },
     { name = "tqdm" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/3d/5e/9b0d3f6e946d6ff23face1b441e172d353a4f9bd86c59b4c2ebf09ed80ed/chakra_py-1.0.16.tar.gz", hash = "sha256:a8eaf18ebcdf57216a69165a585df1a00ab54a87a45f0815ef0c15bb52d884b6", size = 8483 }
+sdist = { url = "https://files.pythonhosted.org/packages/c6/bb/8e48e7c96cc41a47731f612548062fa656dbbe5de07dda7b1043c7ac04be/chakra_py-1.0.17.tar.gz", hash = "sha256:4e855e8fb68157080e07b9a3e5eb19121dbc9ae4b4cc9dcfc1d7a9aa61b2177d", size = 8549 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fd/03/d4533c653ab60c457be197fdaba805d9ef2d9a5d44f4731ce32aa29620a0/chakra_py-1.0.16-py3-none-any.whl", hash = "sha256:0205dd450928ffeaa2add1df6f3c2e65c49e0e7db367eb43784721c764e1afdb", size = 9169 },
+    { url = "https://files.pythonhosted.org/packages/28/00/fd5c3783b52af5bd0d20f593c13d3ee5ffb25e76304b17daf2a963c261ce/chakra_py-1.0.17-py3-none-any.whl", hash = "sha256:3a8a7b7de4181ac8a25e9960b8b9c1efc8c98c72e73fafce81e2c72d2c94755f", size = 9207 },
 ]
 
 [[package]]
@@ -229,7 +229,7 @@ dependencies = [
 
 [package.metadata]
 requires-dist = [
-    { name = "chakra-py", specifier = ">=1.0.16" },
+    { name = "chakra-py", specifier = ">=1.0.17" },
     { name = "httpx", specifier = ">=0.28.1" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.2.1" },
 ]
