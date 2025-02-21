@@ -71,7 +71,7 @@ Add the following to your `claude_desktop_config.json` file:
 
 ## Architecture
 
-INSERT EXCALIDRAW HERE
+<img width="1004" alt="architecture" src="https://github.com/user-attachments/assets/0984e717-afc5-4599-b2c0-eefa33d40441" />
 
 ## Disclaimers 
 
