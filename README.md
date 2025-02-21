@@ -15,9 +15,10 @@ A native integration with Anthropic's [Model Context Protocol (MCP)](https://www
 
 TBD: INSERT DEMO HERE
 
-## Installation
-
-TBD
+## Prerequisites
+- Python 3.11+
+- [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- Chakra Account - sign up [here](https://console.chakra.dev/)
 
 ## Finding your DB Session Key
 
@@ -27,6 +28,46 @@ TBD
 
 https://github.com/user-attachments/assets/9f1c1ab8-cb87-42a1-8627-184617bbb7d7
 
+## Installation
+
+### Automated Using OpenTools (Easier)
+
+TBD
+
+### Manual Setup (More Work)
+
+Clone the repository by running:
+```bash
+git clone https://github.com/Chakra-Network/mcp-server.git
+```
+
+Install dependencies using uv:
+```bash
+uv sync
+```
+
+Add the following to your `claude_desktop_config.json` file:
+- On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
+- On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
+
+```json
+{
+  "mcpServers": {
+    "chakra": {
+      "command": "uv",
+      "args": [
+          "--directory",
+          "/path/to/mcp-server",
+          "run",
+          "src/server.py"
+      ],
+      "env": {
+        "db_session_key": "YOUR_DB_SESSION_KEY"
+      }
+    }
+  }
+}
+```
 
 ## Architecture
 
