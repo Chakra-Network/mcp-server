@@ -32,7 +32,7 @@ https://github.com/user-attachments/assets/9f1c1ab8-cb87-42a1-8627-184617bbb7d7
 
 INSERT EXCALIDRAW HERE
 
-## Notes 
+## Disclaimers 
 
 - MCP is extremely early. The experience in Claude Desktop is suboptimal - every time you use the server, you have to grant access explicitly. This is a design decision on Anthropic's part and is not yet configurable.
 - Setup is rough around the edges. We have worked closely with the folks at OpenTools to make this as seamless as possible, but there is room for improvement. We are looking forward to an MCP GUI experience in the future, but for now, users must use the command-line. 
