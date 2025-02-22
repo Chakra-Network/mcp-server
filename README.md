@@ -13,7 +13,8 @@ A native integration with Anthropic's [Model Context Protocol (MCP)](https://www
 - **Data Share Interactions**: Interact with subscribed data shares. For example, if you have subscribed to a financial data share, you can ask questions like "What is the stock price of Tesla?"
 - **Database Management**: Create, update, and delete tables.
 
-TBD: INSERT DEMO HERE
+
+https://github.com/user-attachments/assets/0d1b3588-4dec-4fae-8396-d1794177a23c
 
 ## Prerequisites
 - Python 3.11+
