@@ -18,7 +18,7 @@ https://github.com/user-attachments/assets/0d1b3588-4dec-4fae-8396-d1794177a23c
 
 ## Prerequisites
 - Python 3.11+
-- [uv](https://docs.astral.sh/uv/getting-started/installation/)
+- [pip](https://pip.pypa.io/en/stable/installation/)
 - Chakra Account - sign up [here](https://console.chakra.dev/)
 
 ## Finding your DB Session Key
@@ -39,12 +39,7 @@ TBD
 
 Clone the repository by running:
 ```bash
-git clone https://github.com/Chakra-Network/mcp-server.git
-```
-
-Install dependencies using uv:
-```bash
-uv sync
+pip install chakra-mcp
 ```
 
 Add the following to your `claude_desktop_config.json` file:
@@ -54,13 +49,11 @@ Add the following to your `claude_desktop_config.json` file:
 ```json
 {
   "mcpServers": {
-    "chakra": {
-      "command": "uv",
+     "chakra": {
+      "command": "python",
       "args": [
-          "--directory",
-          "/path/to/mcp-server",
-          "run",
-          "src/server.py"
+        "-m",
+        "chakra_mcp"
       ],
       "env": {
         "db_session_key": "YOUR_DB_SESSION_KEY"
