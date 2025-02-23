@@ -3,10 +3,16 @@ from typing import Any, Optional
 
 import requests
 from chakra_py import Chakra
-from consts import PROMPT_TEMPLATE
 from mcp.server.fastmcp import FastMCP
 
 server = FastMCP("chakra")
+
+# HACK: run locally with uv OR through module - fix later
+try:
+    from .consts import PROMPT_TEMPLATE
+except ImportError:
+    # When running directly with uv
+    from consts import PROMPT_TEMPLATE
 
 
 class ChakraConnectionManager:
