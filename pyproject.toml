@@ -6,6 +6,5 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "chakra-py>=1.0.17",
-    "httpx>=0.28.1",
     "mcp[cli]>=1.2.1",
 ]

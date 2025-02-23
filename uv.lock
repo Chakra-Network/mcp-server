@@ -223,14 +223,12 @@ version = "0.1.0"
 source = { virtual = "." }
 dependencies = [
     { name = "chakra-py" },
-    { name = "httpx" },
     { name = "mcp", extra = ["cli"] },
 ]
 
 [package.metadata]
 requires-dist = [
     { name = "chakra-py", specifier = ">=1.0.17" },
-    { name = "httpx", specifier = ">=0.28.1" },
     { name = "mcp", extras = ["cli"], specifier = ">=1.2.1" },
 ]
 
