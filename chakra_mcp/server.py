@@ -3,9 +3,8 @@ from typing import Any, Optional
 
 import requests
 from chakra_py import Chakra
+from consts import PROMPT_TEMPLATE
 from mcp.server.fastmcp import FastMCP
-
-from .consts import PROMPT_TEMPLATE
 
 server = FastMCP("chakra")
 
