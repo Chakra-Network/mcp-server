@@ -1,10 +1,29 @@
 [project]
-name = "mcp-server"
+name = "chakra-mcp"
 version = "0.1.0"
-description = "Add your description here"
+description = "A native MCP server integration for Chakra databases"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "chakra-py>=1.0.17",
     "mcp[cli]>=1.2.1",
 ]
+authors = [
+    { name = "Chakra Labs Team", email = "hi@chakra-labs.com" }
+]
+license = { text = "MIT" } 
+keywords = ["chakra", "mcp", "database"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Database",
+]
+
+[project.urls]
+Homepage = "https://chakra.dev/"
+Repository = "https://github.com/Chakra-Network/mcp-server"
+Documentation = "https://github.com/Chakra-Network/mcp-server#readme"
+"Bug Tracker" = "https://github.com/Chakra-Network/mcp-server/issues"
