@@ -1,6 +1,6 @@
 [project]
 name = "chakra-mcp"
-version = "0.1.0"
+version = "0.1.4"
 description = "A native MCP server integration for Chakra databases"
 readme = "README.md"
 requires-python = ">=3.11"
@@ -27,3 +27,6 @@ Homepage = "https://chakra.dev/"
 Repository = "https://github.com/Chakra-Network/mcp-server"
 Documentation = "https://github.com/Chakra-Network/mcp-server#readme"
 "Bug Tracker" = "https://github.com/Chakra-Network/mcp-server/issues"
+
+[tool.setuptools]
+license-files = []

@@ -5,7 +5,7 @@ import requests
 from chakra_py import Chakra
 from mcp.server.fastmcp import FastMCP
 
-from consts import PROMPT_TEMPLATE
+from .consts import PROMPT_TEMPLATE
 
 server = FastMCP("chakra")
 
@@ -106,5 +106,12 @@ def prompt() -> str:
     return PROMPT_TEMPLATE
 
 
-if __name__ == "__main__":
+def main():
+    """
+    Main entry point for running the server
+    """
     server.run(transport="stdio")
+
+
+if __name__ == "__main__":
+    main()
