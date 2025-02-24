@@ -19,7 +19,7 @@ https://github.com/user-attachments/assets/0d1b3588-4dec-4fae-8396-d1794177a23c
 
 ## Prerequisites
 - Python 3.11+
-- [pip](https://pip.pypa.io/en/stable/installation/)
+- [uv](https://docs.astral.sh/uv/getting-started/installation/#installation-methods). On MacOS, you can install it using Homebrew: `brew install uv`.
 - Chakra Account - sign up [here](https://console.chakra.dev/)
 
 ## Finding your DB Session Key
@@ -38,11 +38,6 @@ TBD
 
 ### Manual Setup (More Work)
 
-Clone the repository by running:
-```bash
-pip install chakra-mcp
-```
-
 Add the following to your `claude_desktop_config.json` file:
 - On MacOS: `~/Library/Application\ Support/Claude/claude_desktop_config.json`
 - On Windows: `%APPDATA%/Claude/claude_desktop_config.json`
@@ -50,18 +45,16 @@ Add the following to your `claude_desktop_config.json` file:
 ```json
 {
   "mcpServers": {
-     "chakra": {
-      "command": "python",
-      "args": [
-        "-m",
-        "chakra_mcp"
-      ],
+    "chakra": {
+      "command": "uvx",
+      "args": ["chakra-mcp"],
       "env": {
         "db_session_key": "YOUR_DB_SESSION_KEY"
       }
     }
   }
 }
+
 ```
 
 ## Architecture
