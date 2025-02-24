@@ -1,7 +1,8 @@
 # Chakra MCP Server
 
+[![PyPI version](https://badge.fury.io/py/chakra-mcp.svg)](https://badge.fury.io/py/chakra-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
-
+[![Python versions](https://img.shields.io/pypi/pyversions/chakra-mcp.svg)](https://pypi.org/project/chakra-mcp/)
 
 ![mcp](https://github.com/user-attachments/assets/2c9e2b54-2691-43c7-928b-bd6e33cc5f73)
 
