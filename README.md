@@ -20,6 +20,7 @@ https://github.com/user-attachments/assets/0d1b3588-4dec-4fae-8396-d1794177a23c
 ## Prerequisites
 - Python 3.11+
 - [uv](https://docs.astral.sh/uv/getting-started/installation/#installation-methods). On MacOS, you can install it using Homebrew: `brew install uv`.
+- Claude Desktop
 - Chakra Account - sign up [here](https://console.chakra.dev/)
 
 ## Finding your DB Session Key
@@ -34,7 +35,13 @@ https://github.com/user-attachments/assets/9f1c1ab8-cb87-42a1-8627-184617bbb7d7
 
 ### Automated Using OpenTools (Easier)
 
-TBD
+Install [OpenTools](https://opentools.com/docs/quickstart) prerequisites. 
+
+Then run:
+```bash
+npx opentools@latest i chakra
+```
+
 
 ### Manual Setup (More Work)
 
