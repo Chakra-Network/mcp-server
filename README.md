@@ -1,8 +1,10 @@
 # Chakra MCP Server
 
+[![smithery badge](https://smithery.ai/badge/@Chakra-Network/chakra)](https://smithery.ai/server/@Chakra-Network/chakra)
 [![PyPI version](https://badge.fury.io/py/chakra-mcp.svg)](https://badge.fury.io/py/chakra-mcp)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
 [![Python versions](https://img.shields.io/pypi/pyversions/chakra-mcp.svg)](https://pypi.org/project/chakra-mcp/)
+
 
 ![mcp](https://github.com/user-attachments/assets/2c9e2b54-2691-43c7-928b-bd6e33cc5f73)
 
@@ -32,6 +34,14 @@ https://github.com/user-attachments/assets/0d1b3588-4dec-4fae-8396-d1794177a23c
 https://github.com/user-attachments/assets/9f1c1ab8-cb87-42a1-8627-184617bbb7d7
 
 ## Installation
+
+### Installing via Smithery
+
+To install chakra for Claude Desktop automatically via [Smithery](https://smithery.ai/server/@Chakra-Network/chakra):
+
+```bash
+npx -y @smithery/cli install @Chakra-Network/chakra --client claude
+```
 
 ### Automated Using OpenTools (Easier)
 
