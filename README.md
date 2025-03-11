@@ -35,7 +35,7 @@ https://github.com/user-attachments/assets/9f1c1ab8-cb87-42a1-8627-184617bbb7d7
 
 ### Automated Using OpenTools (Easier)
 
-Install [OpenTools](https://opentools.com/docs/quickstart) prerequisites. 
+Install [OpenTools](https://opentools.com/docs/registry/quickstart#prerequisites) prerequisites. 
 
 Then run:
 ```bash
@@ -81,3 +81,18 @@ MIT License - see LICENSE file for details.
 ## Support
 
 For support and questions, please open an issue in the GitHub repository or reach out to us on [Discord](https://discord.gg/chakra-ai).
+
+## Contributing
+
+Creating a new build:
+
+```bash
+uv build
+```
+
+Publishing a new version:
+
+```bash
+uv publish
+```
+
